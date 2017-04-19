@@ -38,6 +38,8 @@ public class RelayControl extends Activity{
 	private Handler mHandler;
 	private String  encodeType ="GBK";
 	private Vibrator mVibrator;
+	private String nickName = "91407102";
+	private String contactID = "91407102";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){

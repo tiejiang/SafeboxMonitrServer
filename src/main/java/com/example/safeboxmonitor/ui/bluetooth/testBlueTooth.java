@@ -22,7 +22,6 @@ import android.widget.ToggleButton;
 import com.example.safeboxmonitor.R;
 import com.example.safeboxmonitor.common.CCPAppManager;
 import com.example.safeboxmonitor.core.ClientUser;
-import com.example.safeboxmonitor.ui.activity.MenuActivity;
 import com.example.safeboxmonitor.ui.helper.IMChattingHelper;
 import com.example.safeboxmonitor.ui.helper.SDKCoreHelper;
 import com.yuntongxun.ecsdk.ECError;
@@ -57,10 +56,10 @@ public class testBlueTooth extends Activity implements IMChattingHelper.OnMessag
 	public static AcceptThread serverThread;
 
 	//rong lian yun init
-	private String nickName = "18665889098";
-	private String contactID = "18665889098";
+	private String nickName = "91407102";
+	private String contactID = "91407102";
 
-	private String mobile = "15919939276";
+	private String mobile = "20170419";
 	String pass = "";
 	String appKey = "8aaf070858cd982e0158e21ff0000cee";
 	String token = "ca8bdec6e6ed3cc369b8122a1c19306d";
