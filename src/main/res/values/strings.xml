@@ -15,51 +15,6 @@
 
 <string name="Console">Console</string>
 <string name="send_serial_content">发送</string>
-<string name="total_vol">总电压(V)：</string>
-<string name="elec">电流(A)：</string>
-<string name="s_o_c">SOC(%):</string>
-<string name="s_o_h">SOH(%):</string>
-<string name="pack_remain_capacity">剩余容量(mAH)：</string>
-<string name="pack_full_capacity">满充容量(mAH)：</string>
-<string name="temp1">温度1（℃）：</string>
-<string name="temp2">温度2（℃）：</string>
-<string name="temp3">温度3（℃）：</string>
-<string name="temp4">温度4（℃）：</string>
-<string name="mos_temp">MOS温度：</string>
-<string name="environment_temp">环境温度：</string>
-<string name="pack_cyc">循环次数：</string>
-<string name="remote_command">远程指令</string>
-<string name="cell_1">电池1:</string>
-<string name="cell_2">电池2:</string>
-<string name="cell_3">电池3:</string>
-<string name="cell_4">电池4:</string>
-<string name="cell_5">电池5:</string>
-<string name="cell_6">电池6:</string>
-<string name="cell_7">电池7:</string>
-<string name="cell_8">电池8:</string>
-<string name="cell_9">电池9:</string>
-<string name="cell_10">电池10:</string>
-<string name="cell_11">电池11:</string>
-<string name="cell_12">电池12:</string>
-<string name="cell_13">电池13:</string>
-<string name="max_voltage">最高电压(mV)：</string>
-<string name="min_voltage">最低电压(mV)：</string>
-<string name="discharging_elec">放电过流告警：</string>
-<string name="charging_elec">充电过流告警：</string>
-<string name="total_vol_under_normal">总压低压告警：</string>
-<string name="total_vol_over_normal">总压过压告警：</string>
-<string name="cell_vol_under_normal">单体低压告警：</string>
-<string name="cell_vol_over_normal">单体过压告警：</string>
-<string name="low_battery">低电量告警：</string>
-<string name="mos_high_tem">MOS高温告警：</string>
-<string name="environment_low_tem">环境低温告警：</string>
-<string name="environment_high_tem">环境高温告警：</string>
-<string name="discharging_low_tem">放电低温告警：</string>
-<string name="discharging_high_tem">放电高温告警：</string>
-<string name="charging_low_tem">充电低温告警：</string>
-<string name="charging_high_tem">充电高温告警：</string>
-
-
 
 <string name="ec_voip_call_connecting_server">正在连接服务器&#8230;</string>
 <string name="ec_voip_call_connect">正在呼叫对方，请稍后&#8230;</string>

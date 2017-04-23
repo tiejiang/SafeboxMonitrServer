@@ -2,7 +2,6 @@ package com.example.safeboxmonitor.ui.bluetooth;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.safeboxmonitor.R;
+import com.example.safeboxmonitor.common.CCPAppManager;
+import com.yuntongxun.ecsdk.ECVoIPCallManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +41,7 @@ public class RelayControl extends Activity{
 	private Vibrator mVibrator;
 	private String nickName = "91407102";
 	private String contactID = "91407102";
+	private String readStr1 = "";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -59,21 +61,13 @@ public class RelayControl extends Activity{
 	}
 
 	private void findMyView() {
-		car_left=(Button)findViewById(R.id.car_left);
-		car_right=(Button)findViewById(R.id.car_right);
-		car_back=(Button)findViewById(R.id.car_back);
 		releaseCtrl=(Button)findViewById(R.id.button1);
 		btBack=(Button) findViewById(R.id.button2);
-		distance_display=(Button)findViewById(R.id.distance_display);
 		_txtRead = (EditText) findViewById(R.id.etShow);
 	}
 
 	private void setMyViewListener() {
-		car_left.setOnClickListener(new ClickEvent());
-		car_right.setOnClickListener(new ClickEvent());
-		car_back.setOnClickListener(new ClickEvent());
 		releaseCtrl.setOnClickListener(new ClickEvent());
-		btBack.setOnClickListener(new ClickEvent());
 	}
 
 	@Override
@@ -105,17 +99,7 @@ public class RelayControl extends Activity{
 					//Toast.makeText(getApplicationContext(), "关闭连接失败", Toast.LENGTH_SHORT);
 					setTitle("关闭连接失败");
 				}
-			}else if (v == car_left) {
-				car_left.setBackgroundColor(Color.WHITE);
-				mVibrator.cancel();
-			}else if (v == car_right) {
-				car_right.setBackgroundColor(Color.WHITE);
-				mVibrator.cancel();
-			}else if (v == car_back) {
-				car_back.setBackgroundColor(Color.WHITE);
-				mVibrator.cancel();
-			}
-			else if (v == btBack) {// 返回
+			}else if (v == btBack) {// 返回
 				RelayControl.this.finish();
 			}
 		}
@@ -199,9 +183,16 @@ public class RelayControl extends Activity{
 							if (len > 0) {
 								byte[] btBuf = new byte[len];
 								System.arraycopy(temp, 0, btBuf, 0, btBuf.length);
+								String sendToUI = readStr1;
 								//读编码
-								String readStr1 = new String(btBuf,encodeType);
-								mHandler.obtainMessage(01,len,-1,readStr1).sendToTarget();
+								readStr1 = new String(btBuf,encodeType);
+								sendToUI = sendToUI + readStr1;
+								if ( readStr1.contains("S") && readStr1.contains("S")){
+									mHandler.obtainMessage(01,len,-1,sendToUI).sendToTarget();
+									sendToUI = "";
+								}else if(readStr1.trim().length() > 7) {
+									sendToUI = "";
+								}
 							}
 							Thread.sleep(wait);// 延时一定时间缓冲数据
 						}catch (Exception e) {
@@ -227,12 +218,13 @@ public class RelayControl extends Activity{
 				case 01:
 					//_txtRead.setText("");
 					String info=(String) msg.obj;
+					Log.d("TIEJIANG", "INFO= " + info);
 					_txtRead.append(info);
-					AnalyzeData(info);
-
-					//启动荣联云 VoIP video的方法：
-					//CCPAppManager.callVoIPAction(MenuActivity.this, ECVoIPCallManager.CallType.VIDEO, nickName, contactID,false);
-
+//					AnalyzeData(info);
+					if (info.contains("O") || info.contains("V") || info.contains("M")){
+						//启动荣联云 VoIP video的方法：
+						CCPAppManager.callVoIPAction(RelayControl.this, ECVoIPCallManager.CallType.VIDEO, nickName, contactID,false);
+					}
 					break;
 
 				default:

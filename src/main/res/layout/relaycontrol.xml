@@ -6,44 +6,6 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"  
-        android:gravity="center">
-        
-    	<Button 
-    	    android:id="@+id/car_left"
-    	    android:layout_width="30dip"
-    	    android:layout_height="70dip"    	    
-    	    />    
-    	<Button 
-    	    android:id="@+id/car"
-    	    android:layout_width="100dip"
-    	    android:layout_height="240dip" 
-    	    />
-    	<Button 
-    	    android:id="@+id/car_right"
-    	    android:layout_width="30dip"
-    	    android:layout_height="70dip"  	    
-    	    />        	    
-    </LinearLayout>
-        
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dip"  
-        android:gravity="center">
-        
-    	<Button 
-    	    android:id="@+id/car_back"
-    	    android:layout_width="60dip"
-    	    android:layout_height="30dip"    	    
-    	    />       	    
-    </LinearLayout>   
-    
-    <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,26 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="返回" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center" >
-        <Button
-            android:id="@+id/button_dis"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="实时距离 :" />
-
-        <Button
-            android:id="@+id/distance_display"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
     </LinearLayout>
 
     <LinearLayout

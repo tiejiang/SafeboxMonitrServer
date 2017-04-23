@@ -27,7 +27,6 @@ import com.example.safeboxmonitor.ui.helper.SDKCoreHelper;
 import com.yuntongxun.ecsdk.ECError;
 import com.yuntongxun.ecsdk.ECInitParams;
 import com.yuntongxun.ecsdk.ECMessage;
-import com.yuntongxun.ecsdk.ECVoIPCallManager;
 import com.yuntongxun.ecsdk.im.ECTextMessageBody;
 
 import java.io.IOException;
@@ -289,16 +288,16 @@ public class testBlueTooth extends Activity implements IMChattingHelper.OnMessag
 				startActivity(discoverableIntent);
 			} else if (v == btnExit) {
 
-//				try {
-//					if (btSocket != null)
-//						btSocket.close();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//				testBlueTooth.this.finish();
+				try {
+					if (btSocket != null)
+						btSocket.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				testBlueTooth.this.finish();
 				// test code begin
 				//启动荣联云 VoIP video的方法：
- 				CCPAppManager.callVoIPAction(testBlueTooth.this, ECVoIPCallManager.CallType.VIDEO, nickName, contactID,false);
+// 				CCPAppManager.callVoIPAction(testBlueTooth.this, ECVoIPCallManager.CallType.VIDEO, nickName, contactID,false);
 				// test code end
 			}
 		}
